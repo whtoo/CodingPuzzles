@@ -1,0 +1,27 @@
+digraph Tree {
+    node [shape=circle,label=""]
+
+
+    node0 -> node1 [label="a"];
+    node1 -> node5 [label="b"];
+    node5 -> node9 [label="c"];
+    node5 -> node10 [label="d"];
+    node9 -> node14 [label="d"];
+    
+    node2 [style=filled,color=black];
+
+    node0 -> node2 [label="b"];
+    node2 -> node6 [label="c"];
+    node6 -> node11 [label="d"];
+
+    node0 -> node3 [label="e"];
+    node3 -> node7 [label="f"];
+    node7 -> node12 [label="g"];
+
+    node0 -> node4 [label="h"];
+    node4 -> node8 [label="i"];
+    node13[style=filled,color=black];
+    node8 -> node13 [label=""];
+    
+
+}
