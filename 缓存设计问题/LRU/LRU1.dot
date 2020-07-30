@@ -1,0 +1,24 @@
+digraph G {    
+    ranksep=.25;
+    nodesep = 0.05;
+    width=10;
+    # 节点定义
+    subgraph cluster0{
+        label="FIFO";
+        empty0 [shape=record,label="<f0>",height=0.05,color=transparent];
+        empty1 [shape=record,label="<f0>",height=0.05,color=transparent];
+        FIFO [shape=record,label="{<f0> | <f1> | <f2> | <f3> | <f4> | <f5> | <f6> | <f7>}"];
+        empty0:f0 -> FIFO:f0 [label="1. 新加入数据"];
+        FIFO:f7 -> empty1:f0 [label="2. 淘汰数据"];
+    }
+    subgraph cluster1 {
+        label="LRU";
+        empty2 [shape=record,label="<f0>",color=transparent,height=0.05];
+        center=true;
+        LRU [shape=record,label="{<f0> | <f1> | <f2> | <f3> | <f4> | <f5> | <f6> | <f7> | <f8> | <f9>} "];
+        LRU:f3 -> LRU:f0 [label="4. 再次访问数据"]
+        LRU:f7 -> empty2:f0 [label="5. 淘汰数据"];
+    }
+
+    FIFO:f3 -> LRU:f0 [label="3. 二次访问数据"];
+}

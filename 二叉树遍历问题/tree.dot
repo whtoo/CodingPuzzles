@@ -1,0 +1,8 @@
+digraph Tree {
+    node [shape=record, height = .1];
+    struct1 [label="<f0> 1|<f1> 中心|<f2> "];
+    struct2 [label="<f0> 1|<f1> G|<f2> ",shape=Mrecord];
+    struct3 [label="<f0> 1|<f1> G|<f2> "];
+    struct1:f0 -> struct2:f1;
+    struct1:f2 -> struct3:f1;
+}
